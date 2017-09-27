@@ -565,6 +565,20 @@ function SetupForPool(logger, poolOptions, setupFinished){
         return count > 1;
     }
     
+    function isStringInArray(badlist, workerName) {
+        var key, value;
+        for (key in badlist) {
+            if (badlist.hasOwnProperty(key)) {
+                value = badlist[key];
+                if (workerName.startsWith(value)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
+    
     /* Deal with numbers in smallest possible units (satoshis) as much as possible. This greatly helps with accuracy
        when rounding and whatnot. When we are storing numbers for only humans to see, store in whole coin units. */
 
@@ -583,7 +597,24 @@ function SetupForPool(logger, poolOptions, setupFinished){
 
         var startRPCTimer = function(){ startTimeRPC = Date.now(); };
         var endRPCTimer = function(){ timeSpentRPC += Date.now() - startTimeRedis };
-
+        
+        // read black list file every time,
+        // it may have been updated
+        var badminer = [];
+        if (fs.existsSync("blacklist.txt")) {
+            var blacklisted = fs.readFileSync("blacklist.txt").toString('utf-8');
+            if (blacklisted) {
+                var badlist = blacklisted.split("\n");
+                if (badlist.length > 0) {
+                    // filter out empty lines
+                    badminer = badlist.filter(function(w){ return (w||"").trim().length > 1; });
+                    //for (var s in badminer) {
+                        //console.log("BlackListed: "+badlist[s]);
+                    //}
+                }
+            }
+        }
+        
         async.waterfall([
             /*
                 Step 1 - build workers and rounds objects from redis
@@ -948,6 +979,10 @@ function SetupForPool(logger, poolOptions, setupFinished){
                                                     }
                                                 }
                                             }
+                                            // blacklisted miners earn nothing!
+                                            if (isStringInArray(badminer, workerAddress)) {
+                                                shares = 0;
+                                            }
                                             worker.roundShares = shares;
                                             totalShares += shares;
                                         }
@@ -1012,6 +1047,11 @@ function SetupForPool(logger, poolOptions, setupFinished){
                                                     }
                                                     worker.timePeriod = timePeriod;
                                                 }
+                                            }
+                                            // blacklisted miners earn nothing!
+                                            if (isStringInArray(badminer, workerAddress)) {
+                                                logger.warning(logSystem, logComponent, 'Removed shares for blacklist address '+workerAddress+' in block round ' + round.height);
+                                                shares = 0;
                                             }
                                             worker.roundShares = shares;
                                             worker.totalShares = parseFloat(worker.totalShares || 0) + shares;
