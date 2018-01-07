@@ -36,6 +36,7 @@
     "dependencies": {
         "bcrypt": "*",
         "bignum":"0.12.5",
+        "node-gyp": "3.6.2",
         "async": "2.3.0",
         "bignum": "0.12.5",
         "body-parser": "1.17.1",
