@@ -34,7 +34,7 @@
         "url": "https://github.com/zencashio/z-nomp.git"
     },
     "dependencies": {
-        "bcrypt": "bcrypt",
+        "bcrypt": "*",
         "async": "2.3.0",
         "bignum": "0.12.5",
         "body-parser": "1.17.1",
