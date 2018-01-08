@@ -80,6 +80,8 @@ Clone the repository and run `npm update` for all the dependencies to be install
 sudo apt-get install build-essential libsodium-dev npm
 sudo npm install n -g
 sudo n stable
+sudo apt-get install redis-server
+
 git clone https://github.com/joshuayabut/node-open-mining-portal.git z-nomp
 cd z-nomp
 npm update
