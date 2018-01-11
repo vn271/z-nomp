@@ -145,8 +145,11 @@
 					<small>Block:</small>
 					{{if (String(it.stats.pools[pool].name).startsWith("zcash")) { }}
 						<a href="https://explorer.zcha.in/blocks/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
+					{{ } else if (String(it.stats.pools[pool].name).startsWith("zen")) { }}
+						<a href="https://explorer.zensystem.io/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
 					{{ } else if (String(it.stats.pools[pool].name).startsWith("zclassic")) { }}
-						<a href="https://classic.zcha.in/blocks/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
+					<a href="https://classic.zcha.in/blocks/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
+
 					{{ } else if (String(it.stats.pools[pool].name).startsWith("hush")) { }}
 						<a href="https://explorer.myhush.org/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
 					{{ } else { }}
@@ -175,6 +178,8 @@
 					<small>Block:</small>
 					{{if (String(it.stats.pools[pool].name).startsWith("zcash")) { }}
 						<a href="https://explorer.zcha.in/blocks/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
+					{{ } else if (String(it.stats.pools[pool].name).startsWith("zen")) { }}
+						<a href="https://explorer.zensystem.io/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
 					{{ } else if (String(it.stats.pools[pool].name).startsWith("zclassic")) { }}
 						<a href="https://classic.zcha.in/blocks/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
 					{{ } else { }}
