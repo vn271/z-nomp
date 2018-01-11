@@ -5,7 +5,7 @@
 This is a Equihash mining pool based off of Node Open Mining Portal.
 
 Donations for development are greatly appreciated!
-  * BTC: 18vHMxVzotQ9EPyESrf7Z1hNM9AwJeVHgD
+  * BTC: 16wZTZqFrKpry7BaziVAZhcmRU3cvhvZN1
   * ZCL: zcXDWbgReztLLXSTUMT2nEumiDM6zTzUXFb7vUnx9JNfJDVqbodyxwEQwgDkFw7Dp128tBU8n8rmVxT43DshmeTEM4LHcdz
 
 #### Production Usage Notice
