@@ -20,7 +20,6 @@ module.exports = function(logger, poolConfig){
 
 
     this.handleAuth = function(workerName, password, authCallback){
-
         if (poolConfig.validateWorkerUsername !== true && mposConfig.autoCreateWorker !== true){
             authCallback(true);
             return;

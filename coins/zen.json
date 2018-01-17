@@ -8,13 +8,15 @@
     "maxFoundersRewardBlockHeight": 839999,
     "foundersRewardAddressChangeInterval": 17500,
     "vFoundersRewardAddress": [
-        "zneuS9dtA3LT9QmMrefK3o16yP9fWKXzJkj"
+        "zneuS9dtA3LT9QmMrefK3o16yP9fWKXzJkj",
+        "znkvNxSy7w3EYT7GbjYJFeF8945SvFBdRFK"
     ],
     "percentTreasuryReward": 12.0,
     "treasuryRewardStartBlockHeight": 139200,
     "treasuryRewardAddressChangeInterval": 50000,
     "vTreasuryRewardAddress": [
-        "zneuS9dtA3LT9QmMrefK3o16yP9fWKXzJkj"
+        "zneuS9dtA3LT9QmMrefK3o16yP9fWKXzJkj",
+        "znkvNxSy7w3EYT7GbjYJFeF8945SvFBdRFK"
     ],
     "peerMagic": "63617368",
     "txfee": 0.0004
