@@ -76,7 +76,7 @@
             <a href="https://classic.zcha.in/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
           {{ } else if (String(it.stats.pools[pool].name).startsWith("hush")) { }}
             <a href="https://explorer.myhush.org/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
-          {{ } else if (String(it.stats.pools[pool].name).startsWizendh("zen")) { }}
+          {{ } else if (String(it.stats.pools[pool].name).startsWith("zen")) { }}
             <a href="http://node1.zenchain.info:8886/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
           {{ } else { }}
           {{=it.stats.pools[pool].payments[p].blocks}}
